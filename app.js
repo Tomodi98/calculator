@@ -12,11 +12,27 @@ const operations = (() => {
         return x / y;
     }
 
+    const operate = (operator, x, y) => {
+        if (operator === '+') {
+            return x + y;
+        }
+        else if (operator === '-') {
+            return x - y;
+        }
+        else if (operator === '*') {
+            return x * y;
+        }
+        else if (operator === '/') {
+            return x / y;
+        }
+    }
+
     return {
         add,
         subtract,
         multiply,
-        divide
+        divide,
+        operate
     };
 })();
 
@@ -45,4 +61,3 @@ const DOMmanipulation = (() => {
         document.getElementById('display').textContent = displayText;
     }
 })();
-//
