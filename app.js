@@ -43,6 +43,9 @@ const DOMmanipulation = (() => {
     const deleteButton = document.getElementById('del');
     deleteButton.onclick = function() {backspace()};
 
+    const clearButton = document.getElementById('clear');
+    clearButton.onclick = function() {clear()};
+
     //adding functions to number buttons
     for (let i = 0; i < numberButtons.length; i++) {
         numberButtons[i].onclick = function() {
@@ -58,6 +61,11 @@ const DOMmanipulation = (() => {
 
     const backspace = () => {
         displayText = displayText.slice(0, -1);
+        document.getElementById('display').textContent = displayText;
+    }
+
+    const clear = () => {
+        displayText = '';
         document.getElementById('display').textContent = displayText;
     }
 })();
