@@ -56,7 +56,7 @@ const DOMmanipulation = (() => {
     const clickNumber = (e) => {
         displayText += e.textContent;
         document.getElementById('display').textContent = displayText;
-        console.log(display);
+        operatorInDisplay = false;
     }
 
     const backspace = () => {
@@ -68,4 +68,25 @@ const DOMmanipulation = (() => {
         displayText = '';
         document.getElementById('display').textContent = displayText;
     }
+    //add function to operator buttons
+    let operatorButtons = document.getElementById('operatorButtons').children;
+    let operatorInDisplay = false; //keeps check that no more operators can be added after one is already there
+    for (let i = 0; i < operatorButtons.length - 1; i++) {
+        operatorButtons[i].onclick = function() {
+            clickOperator (this);
+        };
+    }
+    const clickOperator = (e) => {
+        if (!operatorInDisplay) {
+            displayText += e.textContent;
+            document.getElementById('display').textContent = displayText;
+            operatorInDisplay = true;
+        }
+        else {
+            backspace();
+            displayText += e.textContent;
+            document.getElementById('display').textContent = displayText;
+        }
+    }
+
 })();
