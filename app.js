@@ -26,80 +26,22 @@ const operations = (() => {
             return Number(x) / Number(y);
         }
     }
-
     return {
         add,
         subtract,
         multiply,
         divide,
         operate
-    };
+    }
 })();
 
-const DOMmanipulation = (() => {
-    let displayText = '';
-    let numberButtons = document.getElementById('numberButtons').children;
+const numberButtons = document.getElementById('numberButtons').children;
+const display = document.getElementById('display');
 
-    const deleteButton = document.getElementById('del');
-    deleteButton.onclick = function() {backspace()};
+for (let i = 0; i < numberButtons.length; i++) {
+    numberButtons[i].onclick = function(){clickNumber(this)}
+}
 
-    const clearButton = document.getElementById('clear');
-    clearButton.onclick = function() {clear()};
-
-    //adding functions to number buttons
-    for (let i = 0; i < numberButtons.length; i++) {
-        numberButtons[i].onclick = function() {
-            clickNumber (this);
-        };
-    }
-    //write the number clicked into the display area
-    const clickNumber = (e) => {
-        displayText += e.textContent;
-        document.getElementById('display').textContent = displayText;
-        operatorInDisplay = false;
-    }
-
-    const backspace = () => {
-        displayText = displayText.slice(0, -1);
-        document.getElementById('display').textContent = displayText;
-    }
-
-    const clear = () => {
-        displayText = '';
-        document.getElementById('display').textContent = displayText;
-        operatorInDisplay = false;
-    }
-    //add function to operator buttons
-    let operatorButtons = document.getElementById('operatorButtons').children;
-    let operatorInDisplay = false; //keeps check that no more operators can be added after one is already there
-    for (let i = 0; i < operatorButtons.length - 1; i++) {
-        operatorButtons[i].onclick = function() {
-            clickOperator (this);
-        };
-    }
-    const clickOperator = (e) => {
-        if (!operatorInDisplay) {
-            displayText += e.textContent;
-            document.getElementById('display').textContent = displayText;
-            operatorInDisplay = true;
-        }
-        else {
-            backspace();
-            displayText += e.textContent;
-            document.getElementById('display').textContent = displayText;
-        }
-    }
-
-})();
-
-//a place to do all the calculations after the "=" sign has been clicked on
-const calculations = (() => {
-    let result;
-    let num1;
-    let num2;
-    return {
-        result,
-        num1,
-        num2
-    };
-})();
+function clickNumber (e) {
+    display.textContent += e.textContent;
+}
