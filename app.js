@@ -14,16 +14,16 @@ const operations = (() => {
 
     const operate = (operator, x, y) => {
         if (operator === '+') {
-            return x + y;
+            return Number(x) + Number(y);
         }
         else if (operator === '-') {
-            return x - y;
+            return Number(x) - Number(y);
         }
         else if (operator === '*') {
-            return x * y;
+            return Number(x) * Number(y);
         }
         else if (operator === '/') {
-            return x / y;
+            return Number(x) / Number(y);
         }
     }
 
@@ -67,6 +67,7 @@ const DOMmanipulation = (() => {
     const clear = () => {
         displayText = '';
         document.getElementById('display').textContent = displayText;
+        operatorInDisplay = false;
     }
     //add function to operator buttons
     let operatorButtons = document.getElementById('operatorButtons').children;
@@ -89,4 +90,16 @@ const DOMmanipulation = (() => {
         }
     }
 
+})();
+
+//a place to do all the calculations after the "=" sign has been clicked on
+const calculations = (() => {
+    let result;
+    let num1;
+    let num2;
+    return {
+        result,
+        num1,
+        num2
+    };
 })();
