@@ -62,6 +62,9 @@ for (let i = 0; i < operatorButtons.length -1; i++) {     // -1 so it excludes t
     operatorButtons[i].onclick = function(){clickOperator(this)};
 }
 function clickOperator (e) {
+    if (operatorClicked) {
+        calculate();
+    }
     display.textContent += e.textContent;
     operation = e.textContent;
     operatorClicked = true;
