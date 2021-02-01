@@ -10,5 +10,5 @@ The calculator works as (probably) most calculators do.
 
 Input one number by clicking on the buttons with numbers on them.
 Afterwards select an operator (+, -, * or /) and another number to execute the selected operation with.
-You can also chain multiple numbers (example: 2 + 6 * 2). Keep in mind that doing so would not yield 14 as expected with usual operator precedence in math. This calculator cannot do that! It evaluates numbers in the order they are input in.
+You can also chain multiple numbers (example: 2 + 6 * 2). Keep in mind that doing so would not yield 14 as expected with usual operator precedence in math. This calculator cannot do that! It evaluates numbers in the order they are input in, so in the given example it would return 16.
 Try dividing by 0.
