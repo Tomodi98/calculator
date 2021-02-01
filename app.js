@@ -23,8 +23,8 @@ const operations = (() => {
             return Number(x) * Number(y);
         }
         else if (operator === '/') {
-            setTimeout(function(){clear()},2*1000);
             if (Number(y) === 0) {
+                setTimeout(function(){clear()},2*1000);
                 return 'Hey! You can\'t divide by 0!';
             }
             else {
