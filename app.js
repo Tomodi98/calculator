@@ -23,7 +23,13 @@ const operations = (() => {
             return Number(x) * Number(y);
         }
         else if (operator === '/') {
-            return Number(x) / Number(y);
+            setTimeout(function(){clear()},2000);
+            if (Number(y) === 0) {
+                return 'Hey! You can\'t divide by 0!';
+            }
+            else {
+                return Number(x) / Number(y);
+            }
         }
     }
     return {
@@ -78,7 +84,7 @@ function calculate () {
     //reset everything
     firstNumber = display.textContent;
     secondNumber = '';
-    operatorClicked = false
+    operatorClicked = false;
 }
 //clears and resets everything
 const clearButton = document.getElementById('clear');
@@ -87,5 +93,5 @@ function clear () {
     display.textContent = '';
     firstNumber = '';
     secondNumber = '';
-    operatorClicked = false
+    operatorClicked = false;
 }
