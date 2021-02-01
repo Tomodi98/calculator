@@ -1,0 +1,41 @@
+body {
+    background-color: lightgray;
+}
+
+#container {
+    display: grid;
+    width: 100%;
+    height: 90vh;
+    justify-content: center;
+    align-content: center;
+}
+
+#calculatorContainer {
+    height: 450px;
+    background-color: rgb(161, 161, 161);
+    border: 5px solid black;
+    border-radius: 25px;
+    box-shadow: 10px 5px 5px rgb(95, 95, 95);
+}
+
+#display {
+    margin: 5px 20% 5px 20%;
+    height: 50px;
+    width: 60%;
+    background-color: skyblue;
+    justify-content: center;
+    border: 2px solid black;
+    border-radius: 10px;
+    text-align: end;
+    padding-right: 10px;
+    color: black;
+}
+
+button {
+    background-color: lightblue;
+    outline: none;
+}
+
+#buttons {
+    margin: 10px;
+}
