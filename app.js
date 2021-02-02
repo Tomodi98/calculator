@@ -103,6 +103,12 @@ function clear () {
 
 //keyboard support
 window.onkeypress = function(event) {
+    if (event.key === 'Enter') {
+        calculate();
+    }
+    else if (event.key === 'c') {
+        clear();
+    }
     if (display.textContent.length < 20) {
         //keyboard support for numbers
         if ( !(Number.isNaN(event.key / 1)) ) {
@@ -113,9 +119,6 @@ window.onkeypress = function(event) {
             else {
                 secondNumber += event.key;
             }
-        }
-        else if (event.key === 'Enter') {
-            calculate();
         }
         else {
             //operator keyboard support
