@@ -54,12 +54,14 @@ for (let i = 0; i < numberButtons.length; i++) {
 }
 
 function clickNumber (e) {
-    display.textContent += e.textContent;
-    if (!operatorClicked) {
-        firstNumber += e.textContent;
-    }
-    else {
-        secondNumber += e.textContent;
+    if (display.textContent.length < 20) {
+        display.textContent += e.textContent;
+        if (!operatorClicked) {
+            firstNumber += e.textContent;
+        }
+        else {
+            secondNumber += e.textContent;
+        }
     }
 }
 const operatorButtons = document.getElementById('operatorButtons').children;
@@ -68,12 +70,14 @@ for (let i = 0; i < operatorButtons.length -1; i++) {     // -1 so it excludes t
     operatorButtons[i].onclick = function(){clickOperator(this)};
 }
 function clickOperator (e) {
-    if (operatorClicked) {
-        calculate();
+    if (display.textContent.length < 20) {
+        if (operatorClicked) {
+            calculate();
+        }
+        display.textContent += e.textContent;
+        operation = e.textContent;
+        operatorClicked = true;
     }
-    display.textContent += e.textContent;
-    operation = e.textContent;
-    operatorClicked = true;
 }
 
 const equalsSign = document.getElementById('operate');
@@ -94,4 +98,20 @@ function clear () {
     firstNumber = '';
     secondNumber = '';
     operatorClicked = false;
+}
+//event.keyCode
+//42 --> 57
+//keyboard support
+window.onkeypress = function(event) {
+    if (display.textContent.length < 20) {
+        if ( !(Number.isNaN(event.key / 1)) ) {
+            display.textContent += event.key;
+            if (!operatorClicked) {
+                firstNumber += event.key;
+            }
+            else {
+                secondNumber += event.key;
+            }
+        }
+    }
 }
