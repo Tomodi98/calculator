@@ -1,11 +1,11 @@
 # calculator
 Created as part of [The Odin Project](https://www.theodinproject.com/courses/foundations/lessons/calculator)
 
-#Technologies used on the project
+## Technologies used on the project
 The project is created using html, css and vanilla javascript.
 Git was used to push the project to github.
 
-#Instructions
+## Instructions
 The calculator works as (probably) most calculators do.
 
 Input one number by clicking on the buttons with numbers on them.
