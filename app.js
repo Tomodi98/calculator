@@ -43,6 +43,7 @@ const operations = (() => {
 
 const numberButtons = document.getElementById('numberButtons').children;
 const display = document.getElementById('display');
+const operators = ['+', '-', '/', '*'];
 let firstNumber = '';
 let secondNumber = '';
 let operatorClicked = false;
@@ -99,11 +100,11 @@ function clear () {
     secondNumber = '';
     operatorClicked = false;
 }
-//event.keyCode
-//42 --> 57
+
 //keyboard support
 window.onkeypress = function(event) {
     if (display.textContent.length < 20) {
+        //keyboard support for numbers
         if ( !(Number.isNaN(event.key / 1)) ) {
             display.textContent += event.key;
             if (!operatorClicked) {
@@ -111,6 +112,24 @@ window.onkeypress = function(event) {
             }
             else {
                 secondNumber += event.key;
+            }
+        }
+        else if (event.key === 'Enter') {
+            calculate();
+        }
+        else {
+            //operator keyboard support
+            for (let i = 0; i < operators.length; i++) {
+                if (event.key === operators[i]) {
+                    if (display.textContent.length < 20) {
+                        if (operatorClicked) {
+                            calculate();
+                        }
+                        display.textContent += event.key;
+                        operation = event.key;
+                        operatorClicked = true;
+                    }
+                }
             }
         }
     }
