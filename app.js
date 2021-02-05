@@ -120,6 +120,21 @@ function backspace () {
     console.log(firstNumber);
     console.log(secondNumber);
 }
+//decimal separator '.'
+const decimalButton = document.getElementById('decimalPoint');
+decimalButton.onclick = function(){decimal()};
+function decimal () {
+    if (display.textContent.length < 20) {
+        if (!operatorClicked && ( firstNumber.indexOf('.') === -1 ) ) {
+            display.textContent += '.';
+            firstNumber += '.';
+        }
+        else if (operatorClicked && ( secondNumber.indexOf('.') === -1 ) ) {
+            display.textContent += '.';
+            secondNumber += '.';
+        }
+    }
+}
 
 //keyboard support
 window.onkeypress = function(event) {
