@@ -100,13 +100,33 @@ function clear () {
     secondNumber = '';
     operatorClicked = false;
 }
+//deletes last number / operator input
+const deleteButton = document.getElementById('del');
+deleteButton.onclick = function(){backspace()};
+function backspace () {
+    for (let i = 0; i < operators.length; i++) {
+        if (display.textContent[display.textContent.length-1] === operators[i]) {
+            operatorClicked = false;
+            operation = 0;
+        }
+    }
+    if (!operatorClicked && !(Number.isNaN(display.textContent[display.textContent.length - 1] / 1))) {
+        firstNumber = firstNumber.slice(0, -1);
+    }
+    else if (operatorClicked && !(Number.isNaN(display.textContent[display.textContent.length - 1] / 1))) {
+        secondNumber = secondNumber.slice(0, -1);
+    }
+    display.textContent = display.textContent.slice(0, -1);
+    console.log(firstNumber);
+    console.log(secondNumber);
+}
 
 //keyboard support
 window.onkeypress = function(event) {
     if (event.key === 'Enter') {
         calculate();
     }
-    else if (event.key === 'c') {
+    else if (event.key === 'c' || event.key === 'C') {
         clear();
     }
     if (display.textContent.length < 20) {
@@ -136,4 +156,7 @@ window.onkeypress = function(event) {
             }
         }
     }
+    console.log(firstNumber);
+    console.log(secondNumber);
+    console.log (operation);
 }
