@@ -155,6 +155,9 @@ window.onkeypress = function(event) {
                 secondNumber += event.key;
             }
         }
+        else if (event.key === ',' || event.key === '.') {
+            decimal ();
+        }
         else {
             //operator keyboard support
             for (let i = 0; i < operators.length; i++) {
