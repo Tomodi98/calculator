@@ -48,10 +48,6 @@ button {
     margin: 10px;
 }
 
-#buttons > div {
-    border: 1px solid white;
-}
-
 #numberButtons {
     display: grid;
     grid-row-start: 2;
@@ -74,6 +70,11 @@ button {
     grid-column-end: 5;
     grid-template-rows: repeat(4, 1fr);
     grid-template-columns: repeat(2, 1fr);
+    z-index: 0.5;
+}
+
+#operatorButtons > div {
+    z-index: -10;
 }
 
 #usefulButtons {
