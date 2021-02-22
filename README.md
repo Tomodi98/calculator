@@ -1,5 +1,6 @@
 # calculator
 Created as part of [The Odin Project](https://www.theodinproject.com/courses/foundations/lessons/calculator)
+
 See the project in [action](https://tomodi98.github.io/calculator/)
 
 ## Technologies used on the project
