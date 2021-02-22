@@ -15,7 +15,3 @@ Afterwards select an operator (+, -, * or /) and another number to execute the s
 You can also chain multiple numbers (example: 2 + 6 * 2). Keep in mind that doing so would not yield 14 as expected with usual operator precedence in math. This calculator cannot do that! It evaluates numbers in the order they are input in, so in the given example it would return 16.
 
 Try dividing by 0.
-
-This calculator has full keyboard support.
-
-You can press 'c' on your keyboard to reset all values.
